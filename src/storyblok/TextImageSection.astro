@@ -1,0 +1,15 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<section class="flex gap-8 py-8 container mx-auto" {...storyblokEditable(blok)}>
+  <div class={`w-1/2 ${blok.reverce ? "order-last" : " "}`}>
+    <img src={blok.image.filename + "/m/"} alt={blok.image.alt} />
+  </div>
+  <div class="w-1/2">
+    <h2 class="text-4xl font-bold mb-2">{blok.title}</h2>
+    <p>{blok.description}</p>
+  </div>
+</section>
