@@ -10,12 +10,13 @@ const story = await useStoryblok(
   `cdn/stories/${slug ?? "home"}`,
   {
     version: isPreview ? "draft" : "published",
+    cv: new Date().getMilliseconds(),
   },
   {},
   Astro
 );
 ---
 
-<Layout>
+<Layout title={story.content.title}>
   <StoryblokComponent blok={story.content} />
 </Layout>
